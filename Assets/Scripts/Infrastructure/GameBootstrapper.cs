@@ -1,21 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using TDZS.Infrastructure.StateMachine;
+using TDZS.Infrastructure.StateMachine.State;
 using UnityEngine;
 
-namespace TDZS
+namespace TDZS.Infrastructure
 {
     public class GameBootstrapper : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        private Game _game;
+        private void Awake()
         {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
+            _game = new Game(new GameStateMachine());
+            _game.StateMachine.Enter<BootstrapState>();
+            
+            DontDestroyOnLoad(this);
         }
     }
 }

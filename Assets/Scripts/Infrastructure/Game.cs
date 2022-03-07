@@ -1,21 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using TDZS.Infrastructure.StateMachine;
 
-namespace TDZS
+namespace TDZS.Infrastructure
 {
-    public class Game : MonoBehaviour
+    public class Game
     {
-        // Start is called before the first frame update
-        void Start()
+        public IGameStateMachine StateMachine;
+        public Game(IGameStateMachine gameStateMashine)
         {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
+            StateMachine = gameStateMashine;
         }
     }
 }

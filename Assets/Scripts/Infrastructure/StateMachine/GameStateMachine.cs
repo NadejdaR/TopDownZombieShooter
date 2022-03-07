@@ -1,21 +1,33 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using UnityEngine;
+using TDZS.Infrastructure.StateMachine.State;
 
-namespace TDZS
+namespace TDZS.Infrastructure.StateMachine
 {
-    public class GameStateMachine : MonoBehaviour
+    public class GameStateMachine : IGameStateMachine
     {
-        // Start is called before the first frame update
-        void Start()
+        private readonly Dictionary<Type, IState> _states;
+        private IState _activeState;
+
+        public GameStateMachine()
         {
-        
+            _states = new Dictionary<Type, IState>()
+            {
+                {typeof(BootstrapState), new BootstrapState(this)},
+                {typeof(MenuState), new MenuState(this)},
+            };
         }
 
-        // Update is called once per frame
-        void Update()
+        public void Enter<TState>() where TState : IState
         {
-        
+            _activeState?.Exit();
+            _activeState = _states[typeof(TState)];
+            _activeState.Enter();
+        }
+
+        public void Exit<TState>() where TState : IState
+        {
+            throw new NotImplementedException();
         }
     }
 }
