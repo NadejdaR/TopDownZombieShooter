@@ -1,20 +1,24 @@
 using System;
 using System.Collections.Generic;
+using TDZS.Infrastructure.SceneLoading;
 using TDZS.Infrastructure.StateMachine.State;
+using TDZS.UI;
 
 namespace TDZS.Infrastructure.StateMachine
 {
     public class GameStateMachine : IGameStateMachine
     {
         private readonly Dictionary<Type, IState> _states;
+
         private IState _activeState;
 
-        public GameStateMachine()
+        public GameStateMachine(ISceneLoader sceneLoader)
         {
             _states = new Dictionary<Type, IState>()
             {
-                {typeof(BootstrapState), new BootstrapState(this)},
-                {typeof(MenuState), new MenuState(this)},
+                {typeof(BootstrapState), new BootstrapState(this, sceneLoader)},
+                {typeof(MenuState), new MenuState(this, sceneLoader)},
+                {typeof(GameState), new GameState(this)},
             };
         }
 
@@ -23,11 +27,6 @@ namespace TDZS.Infrastructure.StateMachine
             _activeState?.Exit();
             _activeState = _states[typeof(TState)];
             _activeState.Enter();
-        }
-
-        public void Exit<TState>() where TState : IState
-        {
-            throw new NotImplementedException();
         }
     }
 }

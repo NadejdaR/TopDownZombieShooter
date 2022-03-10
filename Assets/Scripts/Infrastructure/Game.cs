@@ -5,9 +5,9 @@ namespace TDZS.Infrastructure
     public class Game
     {
         public IGameStateMachine StateMachine;
-        public Game(IGameStateMachine gameStateMashine)
+        public Game(IGameStateMachine gameStateMachine)
         {
-            StateMachine = gameStateMashine;
+            StateMachine = gameStateMachine;
         }
     }
 }
