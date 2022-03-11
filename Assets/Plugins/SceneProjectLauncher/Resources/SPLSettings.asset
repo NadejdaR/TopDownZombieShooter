@@ -14,18 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NeedOpenSceneOnStart: 1
   StartSceneName: 0
-  NeedOpenSceneOnStop: 0
-  StopSceneName: 0
+  NeedOpenSceneOnStop: 1
+  StopSceneName: 2
   StartScene:
     SceneName: 0
     Path: Assets/Scenes/InitScene.unity
     Index: 0
     Name: InitScene
   StopScene:
-    SceneName: 0
-    Path: Assets/Scenes/InitScene.unity
-    Index: 0
-    Name: InitScene
+    SceneName: 2
+    Path: Assets/Scenes/GameScene.unity
+    Index: 2
+    Name: GameScene
   AllScenes:
   - SceneName: 0
     Path: Assets/Scenes/InitScene.unity
@@ -35,4 +35,8 @@ MonoBehaviour:
     Path: Assets/Scenes/MenuScene.unity
     Index: 1
     Name: MenuScene
+  - SceneName: 2
+    Path: Assets/Scenes/GameScene.unity
+    Index: 2
+    Name: GameScene
   NeedRefresh: 0
