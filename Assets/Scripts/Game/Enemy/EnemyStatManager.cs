@@ -6,7 +6,7 @@ namespace TDZS.Game.Enemy
     public class EnemyStatManager : MonoBehaviour
     {
         [Header("Lives")] 
-        [SerializeField] private int _startLives;
+        [SerializeField] private int _startLives = 1;
         
         private static EnemyStatManager _instance;
         public static EnemyStatManager Instance => _instance;

@@ -19,5 +19,7 @@ namespace TDZS.Game.Enemy
     
     private void PlayDead() =>
       _animator.SetBool(_deadName, true);
+    
+    
   }
 }
