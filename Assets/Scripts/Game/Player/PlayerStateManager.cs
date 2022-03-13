@@ -13,6 +13,7 @@ namespace TDZS.Game.Player
         public static PlayerStateManager Instance => _instance;
         public int MaxLives => _maxLives;
         public event Action OnLivesChanged;
+        public event Action OnPlayerDead;
         public int CurrentLives { get; private set; }
 
         private void Awake()
@@ -39,7 +40,7 @@ namespace TDZS.Game.Player
             CurrentLives--;
 
             if (CurrentLives <= 0)
-                return;
+                OnPlayerDead?.Invoke();
 
             OnLivesChanged?.Invoke();
         }
