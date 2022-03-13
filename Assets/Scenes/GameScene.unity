@@ -232,7 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 168291405}
   - component: {fileID: 168291406}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 322021721}
   - component: {fileID: 322021722}
   - component: {fileID: 322021723}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 413353471}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShotSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -414,7 +414,7 @@ GameObject:
   - component: {fileID: 456982510}
   - component: {fileID: 456982512}
   - component: {fileID: 456982513}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -652,7 +652,7 @@ GameObject:
   - component: {fileID: 1208038077}
   - component: {fileID: 1208038076}
   - component: {fileID: 1208038079}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -885,7 +885,7 @@ GameObject:
   - component: {fileID: 1466634742}
   - component: {fileID: 1466634743}
   - component: {fileID: 1466634744}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
