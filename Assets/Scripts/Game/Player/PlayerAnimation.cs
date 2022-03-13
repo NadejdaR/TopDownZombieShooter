@@ -5,7 +5,6 @@ namespace TDZS.Game.Player
     public class PlayerAnimation : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D _rb;
-        
         [SerializeField] private Animator _animator;
         [SerializeField] private string _shootName;
         [SerializeField] private string _speedName;

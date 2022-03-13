@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using TDZS.Infrastructure.SceneLoading;
 using TDZS.Infrastructure.StateMachine.State;
-using TDZS.UI;
 
 namespace TDZS.Infrastructure.StateMachine
 {

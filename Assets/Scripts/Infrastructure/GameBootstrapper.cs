@@ -1,7 +1,6 @@
 using TDZS.Infrastructure.SceneLoading;
 using TDZS.Infrastructure.StateMachine;
 using TDZS.Infrastructure.StateMachine.State;
-using TDZS.UI;
 using TDZS.Utility;
 using UnityEngine;
 
