@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 6983081955688671313}
   m_Layer: 0
   m_Name: HealthPickUp
-  m_TagString: Untagged
+  m_TagString: PickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -175,5 +175,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2be65c4f82f5df140a5ee451ba2c7deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerState: {fileID: 0}
+  _playerState: {fileID: 6410322434866419240, guid: 5f898dc833d4bd543ab2d13a94386bf1, type: 3}
   _addLife: 1

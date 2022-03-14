@@ -1,4 +1,5 @@
 using TDZS.Game.Player;
+using TDZS.Utility.Constants;
 using UnityEngine;
 
 namespace TDZS.Game.Object
@@ -7,10 +8,14 @@ namespace TDZS.Game.Object
     {
         [SerializeField] private PlayerState _playerState;
         [SerializeField] private int _addLife;
-        private void OnTriggerEnter2D(Collider2D other)
+        
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-            _playerState.AddLive(_addLife);
-            Destroy(gameObject);
+            if (collision.gameObject.CompareTag(Tags.Player))
+            {
+                _playerState.AddLive(_addLife); 
+                Destroy(this);
+            }
         }
     }
 }

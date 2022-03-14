@@ -7,26 +7,24 @@ namespace TDZS.Game.Enemy
   {
     [SerializeField] private EnemyAnimation _enemyAnimation;
     [SerializeField] private float _delay = 2f;
-    [SerializeField] private EnemyStat _enemyStat;
 
     private IEnumerator _attackPlayerEnumerator;
 
     private void Start()
     {
-      _enemyStat.OnEnemyDead += CancelGameInvoke;
       GameInvoke();
+    }
+
+    public void CancelGameInvoke()
+    {
+      if (_attackPlayerEnumerator != null)
+        StopCoroutine(_attackPlayerEnumerator);
     }
 
     private void GameInvoke()
     {
       _attackPlayerEnumerator = AttackPlayerCoroutine();
       StartCoroutine(_attackPlayerEnumerator);
-    }
-
-    private void CancelGameInvoke()
-    {
-      if (_attackPlayerEnumerator != null)
-        StopCoroutine(_attackPlayerEnumerator);
     }
 
     private IEnumerator AttackPlayerCoroutine()

@@ -9,24 +9,17 @@ namespace TDZS.Game.Player
         [SerializeField] private string _shootName;
         [SerializeField] private string _speedName;
         [SerializeField] private string _deadName;
-        [SerializeField] private PlayerState _playerState;
-
-        private void Start() =>
-            _playerState.OnPlayerDead += PlayDead;
 
         private void Update() =>
             PlayMove();
-        
-        private void OnDestroy() =>
-            _playerState.OnPlayerDead -= PlayDead;
 
         public void PlayShoot() =>
             _animator.SetTrigger(_shootName);
 
-        private void PlayMove() =>
+        public void PlayMove() =>
             _animator.SetFloat(_speedName, _rb.velocity.magnitude);
 
-        private void PlayDead() =>
+        public void PlayDead() =>
             _animator.SetBool(_deadName, true);
     }
 }
