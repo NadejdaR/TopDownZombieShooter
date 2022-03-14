@@ -231,7 +231,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 154496278}
-  - component: {fileID: 154496279}
   m_Layer: 7
   m_Name: Attack
   m_TagString: Untagged
@@ -253,20 +252,6 @@ Transform:
   m_Father: {fileID: 1466634745}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &154496279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 154496277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bad18a8ab4706243b58949aabb7564d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemyAnimation: {fileID: 322021724}
-  _attackDelay: 1
 --- !u!1 &168291404
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +261,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 168291405}
-  - component: {fileID: 168291406}
   m_Layer: 6
   m_Name: Attack
   m_TagString: Untagged
@@ -299,22 +283,6 @@ Transform:
   m_Father: {fileID: 1208038078}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &168291406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 168291404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f9734b9fccf753409daf579b40e92f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerAnimation: {fileID: 456982513}
-  _shootDelay: 0.5
-  _bulletPrefab: {fileID: 3110125938745353651, guid: d3fa0d2157891364b9539192af3e65f3, type: 3}
-  _bulletSpawnPointTransform: {fileID: 413353471}
 --- !u!1 &322021720
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,7 +294,6 @@ GameObject:
   - component: {fileID: 322021721}
   - component: {fileID: 322021722}
   - component: {fileID: 322021723}
-  - component: {fileID: 322021724}
   m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
@@ -418,21 +385,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &322021724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 322021720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77d088b9ed476e44ba3f2471e226d456, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 322021723}
-  _attackName: Attack
-  _deadName: Dead
 --- !u!1 &413353470
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,7 +426,6 @@ GameObject:
   - component: {fileID: 456982511}
   - component: {fileID: 456982510}
   - component: {fileID: 456982512}
-  - component: {fileID: 456982513}
   m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
@@ -566,23 +517,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &456982513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 456982509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d6a7b649ce806947ba4d404787adee7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rb: {fileID: 1208038076}
-  _animator: {fileID: 456982512}
-  _shootName: Shoot
-  _speedName: Speed
-  _deadName: Dead
 --- !u!1 &714090496
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,9 +645,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1208038078}
   - component: {fileID: 1208038075}
-  - component: {fileID: 1208038077}
   - component: {fileID: 1208038076}
+  - component: {fileID: 1208038077}
   - component: {fileID: 1208038079}
+  - component: {fileID: 1208038081}
+  - component: {fileID: 1208038080}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -802,6 +738,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxLives: 5
   _startLives: 3
+--- !u!114 &1208038080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208038074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9734b9fccf753409daf579b40e92f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerAnimation: {fileID: 1208038081}
+  _shootDelay: 0.5
+  _bulletPrefab: {fileID: 3110125938745353651, guid: d3fa0d2157891364b9539192af3e65f3, type: 3}
+  _bulletSpawnPointTransform: {fileID: 413353471}
+--- !u!114 &1208038081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208038074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d6a7b649ce806947ba4d404787adee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rb: {fileID: 1208038076}
+  _animator: {fileID: 456982512}
+  _shootName: Shoot
+  _speedName: Speed
+  _deadName: Dead
+  _playerState: {fileID: 1208038079}
 --- !u!1 &1293717998
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,9 +915,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1466634745}
   - component: {fileID: 1466634742}
-  - component: {fileID: 1466634743}
   - component: {fileID: 1466634744}
+  - component: {fileID: 1466634743}
   - component: {fileID: 1466634746}
+  - component: {fileID: 1466634748}
+  - component: {fileID: 1466634747}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -1035,6 +1007,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startLives: 1
+--- !u!114 &1466634747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466634741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bad18a8ab4706243b58949aabb7564d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyAnimation: {fileID: 1466634748}
+  _delay: 2
+  _enemyStat: {fileID: 1466634746}
+--- !u!114 &1466634748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466634741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d088b9ed476e44ba3f2471e226d456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 322021723}
+  _attackName: Attack
+  _deadName: Dead
+  _enemyStat: {fileID: 1466634746}
 --- !u!1 &1987224511
 GameObject:
   m_ObjectHideFlags: 3

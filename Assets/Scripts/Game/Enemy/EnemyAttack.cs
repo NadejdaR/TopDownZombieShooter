@@ -14,10 +14,8 @@ namespace TDZS.Game.Enemy
     private void Start()
     {
       _enemyStat.OnEnemyDead += CancelGameInvoke;
-    }
-
-    private void Update() =>
       GameInvoke();
+    }
 
     private void GameInvoke()
     {

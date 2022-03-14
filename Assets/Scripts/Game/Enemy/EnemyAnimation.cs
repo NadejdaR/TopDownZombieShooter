@@ -11,16 +11,14 @@ namespace TDZS.Game.Enemy
 
     private void Start() =>
       _enemyStat.OnEnemyDead += PlayDead;
-    
+
     private void OnDestroy() =>
       _enemyStat.OnEnemyDead -= PlayDead;
-    
+
     public void PlayAttack() =>
       _animator.SetTrigger(_attackName);
-    
+
     private void PlayDead() =>
       _animator.SetBool(_deadName, true);
-    
-    
   }
 }
