@@ -3,14 +3,12 @@ using UnityEngine;
 
 namespace TDZS.Game.Player
 {
-    public class PlayerStateManager : MonoBehaviour
+    public class PlayerState : MonoBehaviour
     {
         [Header("Lives")] 
         [SerializeField] private int _maxLives;
         [SerializeField] private int _startLives;
-        
-        private static PlayerStateManager _instance;
-        public static PlayerStateManager Instance => _instance;
+
         public int MaxLives => _maxLives;
         public event Action OnLivesChanged;
         public event Action OnPlayerDead;
@@ -18,15 +16,6 @@ namespace TDZS.Game.Player
 
         private void Awake()
         {
-            if (_instance != null)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            _instance = this;
-            DontDestroyOnLoad(gameObject);
-
             CurrentLives = _startLives;
         }
         

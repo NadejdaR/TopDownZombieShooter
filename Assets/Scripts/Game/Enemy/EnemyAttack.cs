@@ -1,7 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using TDZS.Game.Player;
 using UnityEngine;
 
 namespace TDZS.Game.Enemy
@@ -10,12 +7,13 @@ namespace TDZS.Game.Enemy
   {
     [SerializeField] private EnemyAnimation _enemyAnimation;
     [SerializeField] private float _delay = 2f;
+    [SerializeField] private EnemyStat _enemyStat;
 
     private IEnumerator _attackPlayerEnumerator;
 
     private void Start()
     {
-      EnemyStatManager.Instance.OnEnemyDead += CancelGameInvoke;
+      _enemyStat.OnEnemyDead += CancelGameInvoke;
     }
 
     private void Update() =>
