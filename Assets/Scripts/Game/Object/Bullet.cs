@@ -1,6 +1,5 @@
 using System.Collections;
 using TDZS.Game.Enemy;
-using TDZS.Utility.Constants;
 using UnityEngine;
 
 namespace TDZS.Game.Object
@@ -9,7 +8,7 @@ namespace TDZS.Game.Object
     {
         [SerializeField] private float _speed;
         [SerializeField] private float _lifeTime;
-        [SerializeField] private EnemyStat _enemyStat;
+        [SerializeField] private int _damage;
 
         private Vector3 _velocity;
 
@@ -22,13 +21,12 @@ namespace TDZS.Game.Object
 
         private void Update() =>
             Move();
-        
-        private void OnCollisionEnter2D(Collision2D collision)
+
+        private void OnTriggerEnter2D(Collider2D col)
         {
-            if (collision.gameObject.CompareTag(Tags.Enemy))
+            if (col.gameObject.CompareTag("Enemy"))
             {
-                _enemyStat.RemoveLive();
-                StopCoroutine(KillBulletByLifeTime());
+                col.GetComponent<EnemyHealth>().ApplyDamage(_damage);
                 Kill();
             }
         }

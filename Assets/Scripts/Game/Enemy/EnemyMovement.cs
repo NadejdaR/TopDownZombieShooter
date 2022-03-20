@@ -1,22 +1,37 @@
 using UnityEngine;
+using TDZS.Game.Player;
 
 namespace TDZS.Game.Enemy
 {
   public class EnemyMovement : MonoBehaviour
   {
-    [SerializeField] private Transform _playerTransform;
+    [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private float _speed;
+
+    private Transform _playerTransform;
+
+    private void Start()
+    {
+      _playerTransform = FindObjectOfType<PlayerMovement>().transform;
+    }
 
     private void Update()
     {
-      TurnToThePlayer();
-      MoveToRhePlayer();
+      Vector3 direction = Direction();
+      Move(direction);
+      Rotate(direction);
     }
 
-    private void TurnToThePlayer() =>
-      transform.up = _playerTransform.position - transform.position;
+    public void Reset() =>
+      _rb.velocity = Vector2.zero;
 
-    private void MoveToRhePlayer() =>
-      transform.position = Vector2.MoveTowards(transform.position, _playerTransform.position, _speed * Time.deltaTime);
+    private Vector3 Direction() =>
+      _playerTransform.position - transform.position;
+
+    private void Move(Vector3 direction) =>
+      _rb.velocity = direction * _speed;
+
+    private void Rotate(Vector3 direction) =>
+      transform.up = direction;
   }
 }

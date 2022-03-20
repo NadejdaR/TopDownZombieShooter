@@ -1,4 +1,6 @@
 using UnityEngine;
+using TDZS.Game.Input;
+using TDZS.Infrastructure.Services;
 
 namespace TDZS.Game.Player
 {
@@ -7,11 +9,13 @@ namespace TDZS.Game.Player
         [SerializeField] private Rigidbody2D _rb;
         [SerializeField] private float _speed;
 
+        private IInputService _inputService;
         private Camera _camera;
 
         private void Start()
         {
             _camera = Camera.main;
+            _inputService = Services.Container.Get<IInputService>();
         }
 
         private void Update()
@@ -22,16 +26,12 @@ namespace TDZS.Game.Player
 
         private void Move()
         {
-            float horizontal = Input.GetAxis("Horizontal");
-            float vertical = Input.GetAxis("Vertical");
-
-            Vector2 direction = new Vector2(horizontal, vertical).normalized;
-            _rb.velocity = direction * _speed;
+            _rb.velocity = _inputService.Axis.normalized * _speed;
         }
 
         private void Rotate()
         {
-            Vector3 mousePosition = Input.mousePosition;
+            Vector3 mousePosition = _inputService.MousePosition;
             Vector3 worldPoint = _camera.ScreenToWorldPoint(mousePosition);
             worldPoint.z = 0;
 

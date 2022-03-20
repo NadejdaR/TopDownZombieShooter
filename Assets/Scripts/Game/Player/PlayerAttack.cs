@@ -1,21 +1,32 @@
 using UnityEngine;
+using TDZS.Game.Input;
+using TDZS.Infrastructure.Services;
 
 namespace TDZS.Game.Player
 {
     public class PlayerAttack : MonoBehaviour
     {
         [SerializeField] private PlayerAnimation _playerAnimation;
+
         [SerializeField] private float _shootDelay = 0.5f;
+        
         [SerializeField] private GameObject _bulletPrefab;
         [SerializeField] private Transform _bulletSpawnPointTransform;
 
+        private IInputService _inputService;
+
         private float _currentDelay;
-        
+
+        private void Start()
+        {
+            _inputService = Services.Container.Get<IInputService>();
+        }
+
         private void Update()
         {
             DecrementTimer(Time.deltaTime);
-
-            if (Input.GetButtonDown("Fire1") && CanShoot())
+            
+            if (_inputService.IsFireButtonClicked() && CanShoot())
                 Attack();
         }
 

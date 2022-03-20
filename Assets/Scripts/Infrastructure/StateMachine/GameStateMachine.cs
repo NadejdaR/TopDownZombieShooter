@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TDZS.Infrastructure.SceneLoading;
 using TDZS.Infrastructure.StateMachine.State;
+using TDZS.Utility;
 
 namespace TDZS.Infrastructure.StateMachine
 {
@@ -11,12 +12,12 @@ namespace TDZS.Infrastructure.StateMachine
 
         private IState _activeState;
 
-        public GameStateMachine(ISceneLoader sceneLoader)
+        public GameStateMachine(Services.Services services, ICoroutineRunner coroutineRunner)
         {
             _states = new Dictionary<Type, IState>()
             {
-                {typeof(BootstrapState), new BootstrapState(this, sceneLoader)},
-                {typeof(MenuState), new MenuState(this, sceneLoader)},
+                {typeof(BootstrapState), new BootstrapState(this, services, coroutineRunner)},
+                {typeof(MenuState), new MenuState(this, services.Get<ISceneLoader>())},
                 {typeof(GameState), new GameState(this)},
             };
         }

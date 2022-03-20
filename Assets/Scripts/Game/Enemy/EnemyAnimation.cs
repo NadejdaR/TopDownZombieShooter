@@ -6,12 +6,16 @@ namespace TDZS.Game.Enemy
   {
     [SerializeField] private Animator _animator;
     [SerializeField] private string _attackName;
-    [SerializeField] private string _deadName;
+    [SerializeField] private string _speedName;
+    [SerializeField] private string _deathName;
 
     public void PlayAttack() =>
       _animator.SetTrigger(_attackName);
+    
+    public void PlayMove(float speed) =>
+      _animator.SetFloat(_speedName, speed);
 
-    public void PlayDead() =>
-      _animator.SetTrigger(_deadName);
+    public void PlayDeath() =>
+      _animator.SetTrigger(_deathName);
   }
 }

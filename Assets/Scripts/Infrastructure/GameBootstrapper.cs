@@ -1,4 +1,3 @@
-using TDZS.Infrastructure.SceneLoading;
 using TDZS.Infrastructure.StateMachine;
 using TDZS.Infrastructure.StateMachine.State;
 using TDZS.Utility;
@@ -12,7 +11,7 @@ namespace TDZS.Infrastructure
 
         private void Awake()
         {
-            _game = new Game(new GameStateMachine(new AsyncSceneLoader(this)));
+            _game = new Game(new GameStateMachine(Services.Services.Container, this));
             _game.StateMachine.Enter<BootstrapState>();
         
             DontDestroyOnLoad(this);
